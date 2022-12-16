@@ -1,27 +1,35 @@
 package bridge.view
 
+import camp.nextstep.edu.missionutils.Console
+
 /**
  * 사용자로부터 입력을 받는 역할을 한다.
  */
 class InputView {
-    /**
-     * 다리의 길이를 입력받는다.
-     */
+    private val outputView = OutputView()
+
+    init {
+        outputView.printStart()
+    }
+
     fun readBridgeSize(): Int {
-        return 0
+        outputView.printInputBridgeLength()
+        val length = Console.readLine()
+        // 유효성 검사
+        return length.toInt()
     }
 
-    /**
-     * 사용자가 이동할 칸을 입력받는다.
-     */
     fun readMoving(): String {
-        return ""
+        outputView.printInputMoving()
+        val moving = Console.readLine()
+        // 유효성 검사
+        return moving
     }
 
-    /**
-     * 사용자가 게임을 다시 시도할지 종료할지 여부를 입력받는다.
-     */
     fun readGameCommand(): String {
-        return ""
+        outputView.printInputRetry()
+        val retry = Console.readLine()
+        // 유효성 검사
+        return retry
     }
 }
