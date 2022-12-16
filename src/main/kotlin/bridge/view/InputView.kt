@@ -62,7 +62,15 @@ class InputView {
     fun readGameCommand(): String {
         outputView.printInputRetry()
         val retry = Console.readLine()
-        //checkRetry(retry)
+        checkRetry(retry)
         return retry
+    }
+
+    private fun checkRetry(retry: String) {
+        val valid = listOf<String>(STRING_RETRY, STRING_QUIT)
+        if (!valid.contains(retry)) {
+            outputView.printException(EXCEPTION_INVALID_RETRY)
+            throw  IllegalArgumentException(EXCEPTION_INVALID_RETRY)
+        }
     }
 }
