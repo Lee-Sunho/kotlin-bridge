@@ -40,8 +40,8 @@ class OutputView {
         println(STRING_INPUT_RETRY)
     }
 
-    fun printException() {
-        println()
+    fun printException(message: String) {
+        println(message)
     }
 
 }
